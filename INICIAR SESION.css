@@ -12,6 +12,19 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Estilo del contenedor de login */
@@ -22,10 +35,11 @@ body {
     width: 100%;
     max-width: 420px;
     margin: 60px auto;
-    box-shadow: 0 0 15px rgba(0,0,0,0.8);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
     display: flex;
     flex-direction: column;
     gap: 15px;
+    animation: fadeIn 1s ease-in-out;
 }
 
 /* Título del formulario */
@@ -51,6 +65,13 @@ body {
     border-radius: 5px;
     background-color: #f0f0f0;
     color: #000;
+    transition: border 0.3s ease;
+}
+
+/* Estilo al enfocar input */
+.login-container input:focus {
+    outline: none;
+    border: 2px solid #d9414e;
 }
 
 /* Botón de ingresar */
@@ -80,10 +101,12 @@ body {
     color: #d9414e;
     font-weight: bold;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .login-container p a:hover {
     text-decoration: underline;
+    color: #a52a2a;
 }
 
 /* Título redes */
@@ -108,11 +131,12 @@ body {
     border-radius: 8px;
     padding: 10px;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .social-login button:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 /* Imágenes de redes sociales */
@@ -123,31 +147,34 @@ body {
     margin: 0 auto;
 }
 
+/* Logo */
 #logo {
     margin-top: 60px;
     width: 400px;
 }
 
-/* Responsive */
-@media(max-width: 500px) {
-    .login-container {
-        padding: 20px;
-        width: 90%;
-    }
-
-    .social-login {
-        flex-direction: column;
-    }
-
-    .social-login button {
-        width: 100%;
-    }
-}
-
-#pie{
+/* Pie de página*/
+footer {
     background-color: #0d0d0d;
-    width: 100%;
+    color: #fff;
+    text-align: center;
     padding: 20px;
-    color: white;
-    justify-content: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
+#volver {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}   
+#volver a {
+    color: #f1f0f0;
+    text-decoration: none;
+    font-weight: bold;
+}
+#volver a:hover {
+    color: #d9414e;
+}
+
+
