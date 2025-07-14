@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> <link rel="stylesheet" href="quiz.css">  <link rel="icon" href="logo icon.png">
+</head>
+<body>
+    <header>
+            <section id="logo">
+                <img src="INICIO/LOGOO.png" alt="">
+                <a href="#"></a>
+            </section>
+            <nav id="menu1">
+            <a href="/PA DISEÑO WEB FINALIZADO/index.html">Inicio</a>
+            <a href="PELICULAS.html">Peliculas</a>
+            <a href="SERIES.html">Series</a>
+            <a href="TIENDA.html">Tienda</a> 
+            <a href="INICIAR SESION.html">Iniciar Sesion</a>
+            <a href="REGISTRO.html">Registrate</a>
+            </nav>
+        </header>
+
+
+      <section class="test-marvel">
+        <h2>¿Qué tipo de fan de Marvel eres?</h2>
+        <p class="instruccion">Responde estas 3 preguntas y te diremos qué estilo de películas encajan mejor contigo.</p>
+        <div class="pregunta">
+          <h3>1. ¿Qué es lo que más disfrutas en una película?</h3>
+            <button onclick="respuesta(1, 'accion')">💥 Explosiones, peleas y adrenalina</button>
+            <button onclick="respuesta(1, 'comedia')">🤣 Escenas graciosas y momentos relajados</button>
+            <button onclick="respuesta(1, 'emocion')">🧠 Una trama profunda y emocional</button>
+        </div>
+        <div class="pregunta">
+          <h3>2. ¿Con cuál personaje te identificas más?</h3>
+            <button onclick="respuesta(2, 'ironman')">🤖 Iron Man</button>
+            <button onclick="respuesta(2, 'spiderman')">🕷️ Spider-Man</button>
+            <button onclick="respuesta(2, 'wanda')">🔮 Wanda Maximoff</button>
+        </div>
+        <div class="pregunta">
+          <h3>3. ¿Dónde preferirías vivir tus aventuras?</h3>
+            <button onclick="respuesta(3, 'galaxia')">🌌 En los confines del espacio</button>
+            <button onclick="respuesta(3, 'ciudad')">🏙️ En la ciudad con acción diaria</button>
+            <button onclick="respuesta(3, 'multiverso')">🌀 En universos paralelos y mágicos</button>
+        </div>
+        <div id="resultado" class="resultado-test"></div>
+      <script>
+        const respuestas = {};
+
+        function respuesta(pregunta, valor) {
+        respuestas[pregunta] = valor;
+      if (Object.keys(respuestas).length === 3) {
+        mostrarResultado();
+      }
+    }
+
+    function mostrarResultado() {
+      let resultadoTexto = '';
+      const { 1: r1, 2: r2, 3: r3 } = respuestas;
+      if (r1 === 'accion' && r2 === 'ironman' && r3 === 'ciudad') {
+        resultadoTexto = "🔥 ¡Eres un amante de la acción urbana! Te fascinan las peleas épicas con tecnología como en <strong>Iron Man</strong> o <strong>Avengers</strong>.";
+      } else if (r1 === 'comedia' && r2 === 'spiderman') {
+        resultadoTexto = "😄 ¡Eres el alma divertida del equipo! Te encantan las historias con humor como <strong>Spider-Man: Homecoming</strong> o <strong>Guardians of the Galaxy</strong>.";
+      } else if (r1 === 'emocion' && r2 === 'wanda') {
+        resultadoTexto = "💫 ¡Eres un buscador de emociones intensas! Te encantan los mundos profundos y oscuros como <strong>WandaVision</strong> o <strong>Doctor Strange</strong>.";
+      } else {
+        resultadoTexto = "🎬 Te gusta explorar lo mejor de cada estilo: acción, humor y magia. ¡Disfrutas el UCM en todas sus formas!";
+      }
+
+      document.getElementById('resultado').style.display = 'block';
+      document.getElementById('resultado').innerHTML = `
+        <h3>🧾 Tu resultado:</h3>
+        <p>${resultadoTexto}</p>
+      `;
+    }
+  </script>
+</section>
+</body>
+</html>
